@@ -1,0 +1,12 @@
+{
+  "name": "trainer",
+  "version": "1.0.0",
+  "description": "training app",
+  "license": "ISC",
+  "author": "Nate Campbell",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

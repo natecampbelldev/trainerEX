@@ -1,0 +1,108 @@
+/* import */
+@font-face {
+    font-family: Turret;
+    src: url('../public/Turret_Road/TurretRoad-Regular.ttf');
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* variables */
+:root {
+    --back: black;
+    --grey-1: white;
+    --grey-2: grey;
+    --grey-3: dimgrey;
+    --lime: lime;
+    --bronze: brown;
+    --gold: gold;
+    --red: red;
+    --blue: blue;
+}
+
+body {
+    padding: 2rem;
+    color: var(--grey-1);
+    background-color: var(--back);
+    font-family: Turret;
+}
+
+main {
+    padding: 1rem;
+    min-height: 85vh;
+    border: .5rem solid var(--grey-3);
+    border-radius: 2rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+button {
+    background-color: var(--lime);
+    padding: 1rem;
+    border-radius: 1rem;
+    font-family: Turret;
+    font-weight: 700;
+}
+#start {
+    display: block;
+    margin: 10rem auto;
+    font-size: 3rem;
+}
+#wizard {
+    background-image: url('../public/body.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+}
+
+#wizard>button {
+    position: absolute;
+}
+
+#wizard #upper {
+    top: 28%;
+    left: 42%;
+}
+
+#wizard #core {
+    top: 42%;
+    left: 45%;
+}
+
+#wizard #lower {
+    top: 60%;
+    left: 42%;
+}
+
+#wizard #chest {
+    top: 35%;
+    left: 41%;
+}
+
+#wizard #shoulders {
+    top: 25%;
+    left: 25%;
+}
+
+#wizard #arms {
+    right: 20%;
+    top: 40%;
+}
+
+#wizard #double {
+    top: 55%;
+    left: 43%;
+}
+
+#wizard #single {
+    top: 65%;
+    left: 35%;
+}
