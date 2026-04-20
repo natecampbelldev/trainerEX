@@ -1,7 +1,7 @@
 /* import */
 @font-face {
     font-family: Turret;
-    src: url('../public/Turret_Road/TurretRoad-Regular.ttf');
+    src: url('/Turret_Road/TurretRoad-Regular.ttf');
 }
 
 /* reset */
@@ -50,11 +50,33 @@ button {
     font-family: Turret;
     font-weight: 700;
 }
+
+form {
+    margin: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+input {
+    font-size: 2rem;
+    padding: .5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
 #start {
     display: block;
-    margin: 10rem auto;
+    margin: auto;
     font-size: 3rem;
 }
+
+#signup {
+    display: block;
+    margin: 3rem auto;
+    background-color: violet;
+    font-size: 1.5rem;
+}
+
 #wizard {
     background-image: url('../public/body.jpg');
     background-position: center;
@@ -105,4 +127,11 @@ button {
 #wizard #single {
     top: 65%;
     left: 35%;
+}
+
+#reward {
+    display: block;
+    margin: auto;
+    /* background-color: white; */
+    width: 70%;
 }

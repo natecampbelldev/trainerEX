@@ -6,15 +6,19 @@ const achievementSchema = new mongoose.Schema({
 })
 
 const logSchema = new mongoose.Schema({
+    _id: false,
     daysCompleted: Number,
     level: Number,
-    achievements: [achievementSchema]
 })
 
 const userSchema = new mongoose.Schema({
-username: String,
-password: String,
-log: logSchema
+    username: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    log: logSchema,
+    achievements: [achievementSchema]
 })
 
-export const User = mongoose.model(userSchema, 'user_data')
+export const User = mongoose.model('user_datas', userSchema)
