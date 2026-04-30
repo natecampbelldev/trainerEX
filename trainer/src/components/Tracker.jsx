@@ -1,52 +1,54 @@
 // object to hold svgs and meta
 const rewards = {
-    day1: {
+    1: {
         // invitation to tryouts
-        svg: '/',
+        svg: '/scroll.svg',
         msg: 'First Day'
     },
-    week1: {
+    7: {
         // make the team
         svg: '/team.svg',
         msg: 'First Week'
     },
-    day10: {
+    10: {
         // go to nationals
-        svg: '',
+        svg: '/volleyball-blue.svg',
         msg: '10 Day Streak'
     },
-    week3: {
+    21: {
         // made mvp
         svg: '/mvp.svg',
         msg: '3 week Streak'
     },
-    week6: {
+    30: {
         // invitation to US olympic team
-        svg: '/',
+        svg: '/scroll.svg',
+        msg: '30 Day Streak'
+    },
+    42: {
+        svg: '/bronze.svg',
         msg: '6 Week Streak, begin advanced training'
     },
-    day20: {
-        svg: '/bronze.svg',
-        msg: '20 Day Streak'
-    },
-    week9: {
+    60: {
         svg: '/silver.svg',
-        msg: '9 Weeks Streak'
+        msg: '60 Day Streak'
     },
-    day30: {
+    70: {
         svg: '/gold.svg',
-        msg: '30 day Streak'
+        msg: '10 Week Streak'
     },
-    complete: {
+    84: {
         svg: '/trophy.svg',
         msg: 'You Did It'
     }
 }
 
-export default function Tracker() {
+
+
+export default function Tracker({reward}) {    
     return (
         <>
-        <img id="reward" src={rewards.complete.svg} alt="reward" />
+        <img id="reward" src={rewards[reward]?.svg || 'volleyball-green.svg'} alt="reward" />
             <h1>Congratulations</h1>
         </>
     )

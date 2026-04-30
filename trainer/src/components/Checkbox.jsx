@@ -2,9 +2,10 @@ export default function Checkbox({ exercise, onCheck }) {
     //   
     return (
         <>
-            <label>{exercise}</label>
+        <div>
             <input onChange={onCheck} type="checkbox" name={exercise} id={exercise} />
-            <br />
+            <label htmlFor={exercise}>{exercise}</label>
+        </div>
         </>
     )
 }

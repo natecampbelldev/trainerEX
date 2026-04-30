@@ -10,20 +10,63 @@ APP.use(express.urlencoded({ extended: true }));
 
 
 APP.get('/:username', async (req, res) => {
-    const user = req.params.username
-    const currentUser = await User.findOne({ username: user });
+    const {username} = req.params
+    const currentUser = await User.findOne({ username: username });
     if (!currentUser) {
-        const init = { username: user, log: { daysCompleted: 0, level: 1 } }
+        const init = { username: username, log: { daysCompleted: 0, level: 1 } }
         const newUser = await User.create(init)
         return res.json(newUser)
     }
     return res.json(currentUser)
 })
-APP.post('/:username', (req, res) => {
-    console.log(req.body);
-    // get _id, find by id, update info, save, return new obj
 
-    // return res.json()
+APP.post('/:id', async (req, res) => {
+    console.log(req.body);
+    const {id} =  req.params
+    const {completed} = req.body
+    // console.log();
+    
+let gift;
+    switch (completed) {
+      case 1:
+        gift = 'first day'
+        break;
+      case 7:
+        gift = 'first week'
+        break;
+      case 10:
+        gift = '10 Day Streak'
+        break;
+      case 21:
+        gift = '3 week Streak'
+        break;
+      case 30:
+        gift = '30 Day Streak'
+        break;
+      case 42:
+        gift = '6 Week Streak'
+        break;
+      case 60:
+        gift = '60 Day Streak'
+        break;
+      case 70:
+        gift = '10 Week Streak'
+        break;
+      case 84:
+        gift = 'You Did It'
+        break;
+      default:
+        gift = null
+    }
+
+
+    const user = await User.findById(id)
+    if (gift !== null) {
+        user.achievements = [...user.achievements, {achievement: gift}]
+    }
+    user.log.daysCompleted += 1
+    await user.save()
+    return res.json(user)
 })
 
 

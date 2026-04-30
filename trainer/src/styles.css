@@ -38,9 +38,28 @@ main {
     border-radius: 2rem;
 }
 
+#logo {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    background-color: rgba(50,150,150,.5);
+    border-radius: 4rem;
+
+}
+
 h1 {
+    color: var(--white);
     text-align: center;
     font-size: 4rem;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+#icon {
+    position:absolute;
+    width: 15%;
+    top: 33%;
+    left: 22.5%;
 }
 
 button {
@@ -78,7 +97,7 @@ input {
 }
 
 #wizard {
-    background-image: url('../public/body.jpg');
+    background-image: url('/body.jpg');
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
@@ -129,9 +148,22 @@ input {
     left: 35%;
 }
 
+label {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+[type="checkbox"] {
+    appearance: none;
+}
+
+[type="checkbox"]:checked~label {
+    text-decoration: line-through;
+    color: var(--grey-3);
+}
+
 #reward {
     display: block;
     margin: auto;
-    /* background-color: white; */
     width: 70%;
 }

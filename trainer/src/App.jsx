@@ -7,6 +7,7 @@ import Tracker from "./components/Tracker"
 export default function App() {
   const [appState, setAppState] = useState(0)
   const [selection, setSelection] = useState('')
+  const [rewardKey, setRewardKey] = useState(0)
 
   const stateChange = async (formData) => {
     const data = formData.get('username')
@@ -31,8 +32,23 @@ export default function App() {
     setSelection(workoutDetails)
   })
 
-  const handleComplete = useCallback(() => {
-    setAppState(3)
+  const handleComplete = useCallback(async () => {
+    const user = JSON.parse(localStorage.getItem('tracking'));
+    
+    const request = await fetch(`http://localhost:3030/${user._id}`, {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({completed: user.log.daysCompleted + 1})
+    })
+    if (request.ok){
+      const update = await request.json()
+      console.log(update.log.daysCompleted);
+      
+      localStorage.setItem('tracker', JSON.stringify(update))
+      setRewardKey(update.log.daysCompleted)
+      setAppState(3)
+    }
   })
 
 
@@ -40,7 +56,10 @@ export default function App() {
     <main>
       {appState === 0 && (
         <>
-          <h1>Trainer EX</h1>
+          <div id="logo">
+            <h1>V&nbsp; lleyFit</h1>
+            <img id="icon" src="/volleyball-icon.svg" />
+          </div>
           <form action={stateChange}>
             <label htmlFor="username">Sign In</label>
             <br />
@@ -52,7 +71,7 @@ export default function App() {
       }
       {appState === 1 && <Wizard onWorkoutSelected={handleWorkoutSelection} />}
       {appState === 2 && <Exercise onCompletion={handleComplete} workout={selection} />}
-      {appState === 3 && <Tracker />}
+      {appState === 3 && <Tracker reward={rewardKey} />}
     </main>
   )
 }

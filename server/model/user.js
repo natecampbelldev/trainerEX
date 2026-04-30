@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 
 const achievementSchema = new mongoose.Schema({
     acheivement: String,
-    dateEarned: Date
-})
+}, {timestamps:true})
 
 const logSchema = new mongoose.Schema({
     _id: false,

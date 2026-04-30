@@ -24,7 +24,7 @@ export default function Exercise({ onCompletion, workout }) {
     const exerciseMap = exercises[workout]
 
 
-    const handleChecks= ()=> {
+    const handleChecks = () => {
         setCompleted(c => c + 1)
         if (completed + 1 === warmup.length) {
             setStage(1)
@@ -41,17 +41,19 @@ export default function Exercise({ onCompletion, workout }) {
         <section>
             {stage === 0 && <>
                 <h2>Warm Up</h2>
-                {warmup.map(w=><Checkbox exercise={w} onCheck={handleChecks} />)}
+                {warmup.map(w => <Checkbox exercise={w} onCheck={handleChecks} />)}
             </>
             }
             {stage === 1 && <>
                 <h2>{workout.toUpperCase()}</h2>
-                {exerciseMap.map(w=><Checkbox exercise={w} onCheck={handleChecks} />)}
+                {exerciseMap.map(w => <Checkbox exercise={w} onCheck={handleChecks} />)}
             </>
             }
             {stage === 2 && <>
                 <h2>Agility</h2>
-                {exercises.agility1.map(w=><Checkbox exercise={w} onCheck={handleChecks} />)}</>}
+                {exercises.agility1.map(w => <Checkbox exercise={w} onCheck={handleChecks} />)}
+            </>
+            }
 
         </section>)
 
